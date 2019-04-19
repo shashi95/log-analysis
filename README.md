@@ -6,7 +6,7 @@ This file shows how to run log analysis in order to get following metrices
 Open up terminal and run this command - python log_analysis.py
 
 I have created two views here - all_calls and error_calls
-all_call - this view constains date wise all api calls irrespective of whether it is success of error calls.
+all_call - this view constains date wise all api calls irrespective of whether it is success or error calls.
 error_calls - date wise number of error calls.
 
 Above two views helped a lot in finding out % error calls.
