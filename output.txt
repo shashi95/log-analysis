@@ -1,0 +1,10 @@
+Most popular three articles of all time
+('Candidate is jerk, alleges rival', 338647L)
+('Bears love berries, alleges bear', 253801L)
+('Bad things gone, say good people', 170098L)
+Most popular article authors of all time
+('Rudolf von Treppenwitz', 338647L)
+('Ursula La Multa', 253801L)
+('Anonymous Contributor', 170098L)
+Days when more than 1 percent of requests lead to errors
+('Jul 17, 2016', '2% errors')
