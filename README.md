@@ -4,6 +4,8 @@ This project sets up a PostgreSQL database for a news website.
 The provided Python script log_analysis.py uses the psycopg2 library to query
 the database and produce a report that answers the following questions.
 
+This file shows how to run log analysis in order to get following metrices -
+
 1. What are the most popular three articles of all time.
 2. Who are the most popular article authors of all time.
 3. On which days did more than 1% of requests lead to errors.
@@ -31,4 +33,5 @@ create view error_calls as select DATE(time) as date, count(*) as error_count fr
 
 date wise number of error calls.
 
-Above two views helped a lot in finding out % error calls.
+all_call - this view constains date wise all api calls irrespective of whether it is success or error calls.
+error_calls - date wise number of error calls.
