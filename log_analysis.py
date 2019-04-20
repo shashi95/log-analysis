@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import datetime
 import psycopg2
 
@@ -12,9 +13,11 @@ def most_popular_article():
     c.execute(query)
     rows = c.fetchall()
     db.close()
-    print("Most popular three articles of all time")
+    print("1. What are the most popular three articles of all time?")
+    print("--------------------------------------------------------")
     for row in rows:
-        print(row[0], row[1])
+        print(str(row[0]) + " ---- " + str(row[1]) + " views")
+    print("\n")
 
 
 def popular_author():
@@ -23,14 +26,16 @@ def popular_author():
     c = db.cursor()
     query = """select ath.name,  count(*) as num from authors ath join
     articles ar on ath.id=ar.author join log l on
-    '/article/' || ar.slug = l.path group by ath.name,ar.title
+    '/article/' || ar.slug = l.path group by ath.name
     order by num desc limit 3;"""
     c.execute(query)
     rows = c.fetchall()
     db.close()
-    print("Most popular article authors of all time")
+    print("2. Who are the most popular article authors of all time?")
+    print("--------------------------------------------------------")
     for row in rows:
-        print(row[0], row[1])
+        print(str(row[0]) + " ---- " + str(row[1]) + " views")
+    print("\n")
 
 
 def error_day():
@@ -47,11 +52,17 @@ def error_day():
               "on t1.date=t2.date where error_count*100/all_count>1;")
     rows = c.fetchall()
     db.close()
-    print("Days when more than 1 percent of requests lead to errors")
+    print("3. On which days did more than 1% of requests lead to errors?")
+    print("--------------------------------------------------------")
     for row in rows:
-        print(row[0].strftime('%b %d, %Y'), str(row[1]) + "% errors")
+        print(row[0].strftime('%b %d, %Y') + " --- " +
+              str(row[1]) + " % errors")
+    print("\n")
 
 
-most_popular_article()
-popular_author()
-error_day()
+if __name__ == '__main__':
+    most_popular_article()
+    popular_author()
+    error_day()
+else:
+    print('Importing ...')
